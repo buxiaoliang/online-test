@@ -7,20 +7,23 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Run the application in the console
+ */
 public class Main {
 
     private static final String SEPARATOR = " | ";
 
     public static void main(String[] args) {
-        //String[][] ox = {{"O", "X", "X"}, {"O", "X", "O"}, {"O", "X", "X"}};
         TicTacToe ticTacToe = new TicTacToe(3, 3);
         String player = ticTacToe.O_PLAYER;
         for (int i = 1; i <= 9; ) {
             if (i % 2 == 0) {
-                player = ticTacToe.X_PLAYER;
+                player = TicTacToe.X_PLAYER;
             } else {
                 player = TicTacToe.O_PLAYER;
             }
+
             System.out.println("Hello, Sir " + player + "! Please input your position: ");
             Scanner scanner = new Scanner(System.in);
             String input = scanner.next();
@@ -31,6 +34,7 @@ public class Main {
                 System.out.println("Example:1,2");
             } else {
                 try {
+                    // print the game
                     printPlay(ticTacToe.setData(player, input));
                     if (ticTacToe.checkWin(TicTacToe.O_PLAYER)) {
                         System.out.println("Winner is : Sir " + TicTacToe.O_PLAYER);
@@ -46,8 +50,6 @@ public class Main {
                 }
             }
         }
-
-        //printPlay(ox);
     }
 
     /**

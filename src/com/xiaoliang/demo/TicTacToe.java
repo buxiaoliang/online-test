@@ -1,13 +1,26 @@
 package com.xiaoliang.demo;
 
+/**
+ * This Tic Tac Toe Games for kids
+ * Please refer to http://en.wikipedia.org/wiki/Tic-tac-toe for details.
+ */
 public class TicTacToe {
 
     // constants
     public static final String O_PLAYER = "O";
     public static final String X_PLAYER = "X";
     private static final String COMMA = ",";
+
     // data
     private String[][] data;
+
+    public void setData(String[][] data) {
+        this.data = data;
+    }
+
+    public String[][] getData() {
+        return data;
+    }
 
     public TicTacToe(int o, int x) {
         data = new String[o][x];
@@ -41,6 +54,9 @@ public class TicTacToe {
      * @return
      */
     public boolean checkWin(String player) {
+        // Enumerate all possible win
+        // Can optimize later
+        // horizontal
         if (player.equals(data[0][0])  && player.equals(data[0][1]) && player.equals(data[0][2])) {
             return true;
         }
@@ -50,6 +66,7 @@ public class TicTacToe {
         if (player.equals(data[2][0])  && player.equals(data[2][1]) && player.equals(data[2][2])) {
             return true;
         }
+        // vertical
         if (player.equals(data[0][0])  && player.equals(data[1][0]) && player.equals(data[2][0])) {
             return true;
         }
@@ -59,6 +76,7 @@ public class TicTacToe {
         if (player.equals(data[0][2])  && player.equals(data[1][2]) && player.equals(data[2][2])) {
             return true;
         }
+        // diagonal
         if (player.equals(data[0][0])  && player.equals(data[1][1]) && player.equals(data[2][2])) {
             return true;
         }

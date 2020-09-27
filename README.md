@@ -1,2 +1,6 @@
 # online-test for Robert
-Only for online-test
+Tic Tac Toe Game
+
+How to run the application?
+
+java -jar out/artifacts/online_test_jar/online-test.jar
